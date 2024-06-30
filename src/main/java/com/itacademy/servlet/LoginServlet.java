@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@WebServlet(name = "Login", urlPatterns="/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private String error = "";
     @Override
@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        User user = UserService.getUser(login, password);
+        User user = UserService.login(login, password);
         if(user != null){
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(30*60);

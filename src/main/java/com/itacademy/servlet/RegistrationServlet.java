@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
 
-@WebServlet(name = "Registration", urlPatterns="/registration")
+@WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,11 +24,8 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        System.out.println(login+" - "+ password);
-        if(!Objects.equals(login, "") && !Objects.equals(password, "")){
-            User user = new User(login, password, name);
-            UserService.addUser(user);
+        User user = UserService.login(login, password);
+        if(user != null){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("/home");

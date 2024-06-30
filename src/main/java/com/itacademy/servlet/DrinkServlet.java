@@ -7,14 +7,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
-@WebServlet(name = "DrinkServlet", urlPatterns = "/coffee/drink")
+@WebServlet("/coffee/drink")
 public class DrinkServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         HttpSession session = request.getSession();
-        ArrayList<Coffee> drinckedCoffeeList = (ArrayList<Coffee>) session.getAttribute("drinckedCoffeeList");
+       List<Coffee> drinckedCoffeeList = (List<Coffee>) session.getAttribute("drinckedCoffeeList");
         if(drinckedCoffeeList.size() < 5){
             drinckedCoffeeList.add(CoffeeService.getCoffee(id));
         }
