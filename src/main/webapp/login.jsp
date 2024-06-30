@@ -22,11 +22,11 @@
                        <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">${error}</p>
                    </c:if>
                     <div class="form-floating">
-                      <input type="login" name="login" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      <input type="login" name="login" class="form-control" id="floatingInput" placeholder="name@example.com" required="required">
                       <label for="floatingInput">Login</label>
                     </div>
                     <div class="form-floating">
-                      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required="required">
                       <label for="floatingPassword">Password</label>
                     </div>
 

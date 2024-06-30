@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="Java" %>
 <%@ page isELIgnored = "false" %>
+<%@ taglib prefix = "c" uri="jakarta.tags.core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,6 +21,9 @@
             <form action="registration" class="h-100 container d-flex flex-column justify-content-center" method="post" >
                 <div class="container ">
                     <h4>Registration form</h4>
+                    <c:if test="${not empty error}">
+                        <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">${error}</p>
+                    </c:if>
                     <div class="row g-3 ">
                         <div class="col-12">
                             <label for="name" class="form-label">Name </label>

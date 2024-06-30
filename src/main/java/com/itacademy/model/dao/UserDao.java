@@ -1,15 +1,12 @@
 package com.itacademy.model.dao;
 
-import com.itacademy.model.Coffee;
 import com.itacademy.model.User;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.TreeMap;
 
 public class UserDao {
     private static volatile UserDao instance;
-    private TreeMap<String, User> userStorage = new TreeMap<>();
-    private List<Coffee> drinkedCoffee = new ArrayList<>();
+    private final TreeMap<String, User> userStorage = new TreeMap<>();
 
     UserDao(){
         if (instance != null) {
@@ -43,12 +40,13 @@ public class UserDao {
         return null;
     }
     public boolean register(User user){
-        if(userStorage.containsKey(user.getLogin())){
+        if(userStorage.containsKey(user.getLogin())
+                && userStorage.get(user.getLogin()).getPassword().equals(user.getPassword()) ){
+            return false;
         }else{
             userStorage.put(user.getLogin(), user);
             return true;
         }
-        return false;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.itacademy.servlet;
 
+import com.itacademy.model.Coffee;
 import com.itacademy.model.User;
 import com.itacademy.service.UserService;
 import jakarta.servlet.ServletException;
@@ -10,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.Objects;
+import java.util.ArrayList;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
@@ -24,10 +25,14 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        User user = UserService.login(login, password);
-        if(user != null){
+        String name = request.getParameter("name");
+        User user = new User(login, password, name);
+        boolean isRegistered = UserService.register(user);
+        if(isRegistered){
             HttpSession session = request.getSession();
+            session.setMaxInactiveInterval(30*60);
             session.setAttribute("user", user);
+            session.setAttribute("drinckedCoffeeList", new ArrayList<Coffee>());
             response.sendRedirect("/home");
         }else {
             request.setAttribute("error", "Check credentials");
