@@ -1,13 +1,13 @@
 package com.itacademy.service;
 
-import com.itacademy.model.dao.UserDao;
 import com.itacademy.model.User;
+import com.itacademy.model.dao.UserDao;
 
 public class UserService {
-    public static User login(String login, String password){
+    public User login(String login, String password){
         return UserDao.getInstance().login(login, password);
     }
-    public static boolean register(User user){
+    public boolean register(User user){
         return UserDao.getInstance().register(user);
     }
 }

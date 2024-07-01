@@ -12,8 +12,6 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -25,9 +23,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserService userService = new UserService();
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        User user = UserService.login(login, password);
+        User user = userService.login(login, password);
         if(user != null){
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(30*60);

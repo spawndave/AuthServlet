@@ -1,8 +1,6 @@
 package com.itacademy.servlet;
 
-import com.itacademy.model.User;
 import com.itacademy.service.CoffeeService;
-import com.itacademy.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,7 +16,8 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if(session.getAttribute("coffeeList") == null){
-            session.setAttribute("coffeeList", CoffeeService.getAvailableCoffeeList());
+            CoffeeService coffeeService = new CoffeeService();
+            session.setAttribute("coffeeList", coffeeService.getAvailableCoffeeList());
         }
         request.getRequestDispatcher("/index.jsp").forward(request,response);
     }

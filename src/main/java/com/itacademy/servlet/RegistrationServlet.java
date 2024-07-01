@@ -23,11 +23,12 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserService userService = new UserService();
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         User user = new User(login, password, name);
-        boolean isRegistered = UserService.register(user);
+        boolean isRegistered = userService.register(user);
         if(isRegistered){
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(30*60);
