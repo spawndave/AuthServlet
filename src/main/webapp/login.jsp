@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="Java" %>
-<%@ page isELIgnored = "false" %>
+
 <%@ taglib prefix = "c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
                        <p class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">${error}</p>
                    </c:if>
                     <div class="form-floating">
-                      <input type="login" name="login" class="form-control" id="floatingInput" placeholder="name@example.com" required="required">
+                      <input type="text"  name="login" class="form-control" id="floatingInput" placeholder="name@example.com" required="required">
                       <label for="floatingInput">Login</label>
                     </div>
                     <div class="form-floating">

@@ -1,6 +1,6 @@
 package com.itacademy.model.dao;
 
-import com.itacademy.model.Coffee;
+import com.itacademy.model.entity.Coffee;
 
 import java.util.HashSet;
 import java.util.TreeMap;
@@ -42,16 +42,9 @@ public class CoffeeDao {
         }
         return coffee;
     }
-    public boolean addCoffee(Coffee coffee){
-        if(coffeeStorage.containsKey(coffee.getId())){
-        }else{
-            coffeeStorage.put(coffee.getId(), coffee);
-            return true;
-        }
-        return false;
-    }
+
     public HashSet<Coffee> getCoffeeList(){
-        return new HashSet<Coffee>(coffeeStorage.values());
+        return new HashSet<>(coffeeStorage.values());
     }
 
 }

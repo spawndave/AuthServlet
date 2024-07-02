@@ -1,8 +1,7 @@
 package com.itacademy.servlet;
 
-import com.itacademy.model.Coffee;
+import com.itacademy.model.entity.Coffee;
 import com.itacademy.service.CoffeeService;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,7 +14,7 @@ import java.util.List;
 @WebServlet("/coffee/drink")
 public class DrinkServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
         HttpSession session = request.getSession();
        List<Coffee> drinckedCoffeeList = (List<Coffee>) session.getAttribute("drinckedCoffeeList");

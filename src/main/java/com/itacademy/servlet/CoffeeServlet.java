@@ -1,6 +1,6 @@
 package com.itacademy.servlet;
 
-import com.itacademy.model.Coffee;
+import com.itacademy.model.entity.Coffee;
 import com.itacademy.service.CoffeeService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

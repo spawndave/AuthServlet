@@ -1,6 +1,5 @@
 package com.itacademy.servlet;
 
-import com.itacademy.model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

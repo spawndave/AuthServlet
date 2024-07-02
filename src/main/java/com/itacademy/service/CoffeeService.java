@@ -1,15 +1,11 @@
 package com.itacademy.service;
 
-import com.itacademy.model.Coffee;
 import com.itacademy.model.dao.CoffeeDao;
+import com.itacademy.model.entity.Coffee;
 
 import java.util.HashSet;
 
 public class CoffeeService {
-
-    public boolean addCofee(Coffee cofee) {
-        return false;
-    }
 
     public Coffee getCoffee(String id) {
         return CoffeeDao.getInstance().getCoffee(Integer.parseInt(id));

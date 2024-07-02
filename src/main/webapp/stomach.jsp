@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="Java" %>
-<%@ page isELIgnored = "false" %>
 <%@ taglib prefix = "c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <h2>Your stomach</h2>

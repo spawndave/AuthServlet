@@ -1,6 +1,6 @@
 package com.itacademy.filter;
 
-import com.itacademy.model.User;
+import com.itacademy.model.entity.User;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;

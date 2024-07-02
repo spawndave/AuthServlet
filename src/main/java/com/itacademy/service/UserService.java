@@ -1,7 +1,7 @@
 package com.itacademy.service;
 
-import com.itacademy.model.User;
 import com.itacademy.model.dao.UserDao;
+import com.itacademy.model.entity.User;
 
 public class UserService {
     public User login(String login, String password){

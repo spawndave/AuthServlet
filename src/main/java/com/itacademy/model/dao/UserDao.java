@@ -1,6 +1,6 @@
 package com.itacademy.model.dao;
 
-import com.itacademy.model.User;
+import com.itacademy.model.entity.User;
 
 import java.util.TreeMap;
 
