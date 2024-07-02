@@ -18,7 +18,7 @@ public class DrinkServlet extends HttpServlet {
         String id = request.getParameter("id");
         HttpSession session = request.getSession();
        List<Coffee> drinckedCoffeeList = (List<Coffee>) session.getAttribute("drinckedCoffeeList");
-        if(drinckedCoffeeList.size() < 5){
+        if(drinckedCoffeeList.size() < 4){
             CoffeeService coffeeService = new CoffeeService();
             drinckedCoffeeList.add(coffeeService.getCoffee(id));
         }

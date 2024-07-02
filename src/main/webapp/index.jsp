@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="Java" %>
+<%@ taglib prefix = "c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +23,10 @@
     </header>
     <main class="main">
         <div class="column column_main">
-          <%@ include file="coffeeList.jsp" %>
+            <c:import url="/coffeeList.jsp"/>
         </div>
         <div class="column column_main">
-          <%@ include file="stomach.jsp" %>
+            <c:import url="/stomach.jsp"/>
         </div>
     </main>
 
